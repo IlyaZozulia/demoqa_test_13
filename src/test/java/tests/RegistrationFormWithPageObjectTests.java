@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static tests.TestData.*;
 
 public class RegistrationFormWithPageObjectTests extends TestBase{
 
@@ -19,22 +20,22 @@ public class RegistrationFormWithPageObjectTests extends TestBase{
         String subjectName = "English";
 
         registrationFormPage.openPage()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setUserEmail(userEmail)
-                .setUserNumber(userNumber)
-                .setGender("Male");
+                .setFirstName(FIRST_NAME)
+                .setLastName(LAST_NAME)
+                .setUserEmail(USER_EMAIL)
+                .setUserNumber(USER_NUMBER)
+                .setGender(GET_GENDER);
 
         registrationFormPage.setDateOfBirth("10", "September", "2000");
-        registrationFormPage.setSubjectName(subjectName);
+        registrationFormPage.setSubjectName(SUBJECT_NAME);
         registrationFormPage.setHobbies("Sports");
         registrationFormPage.setHobbies("Music");
         registrationFormPage.setStreet("Street 1");
         registrationFormPage.setState("NCR");
         registrationFormPage.setCity("Delhi");
         registrationFormPage
-                .checkResult("Student Name", firstName + " " + lastName)
-                .checkResult("Student Email", userEmail);
+                .checkResult("Student Name", FIRST_NAME + " " + LAST_NAME)
+                .checkResult("Student Email", USER_EMAIL);
                 //.checkResult("Date of Birth", "10 September 2000");
 
     }
